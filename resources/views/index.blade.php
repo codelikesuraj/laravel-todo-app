@@ -1,0 +1,21 @@
+@extends('layouts.app')
+
+@section('title')
+    My Todo App
+@endsection
+
+@section('content')
+    <div class="row mt-3">
+        <div class="col-12 align-self-center">
+            @if($todos && count($todos)>0)
+                <ul class="list-group">
+                    @foreach($todos as $todo)
+                        <li class="list-group-item"><a href="/details/{{$todo->id}}">{{ $todo->name }}</a></li>
+                    @endforeach
+                </ul>
+            @else
+                <p style="text-align: center;">No tasks yet !!!</p>
+            @endif
+        </div>
+    </div>
+@endsection
